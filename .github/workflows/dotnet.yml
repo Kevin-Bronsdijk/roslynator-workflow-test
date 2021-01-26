@@ -17,9 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Install Roslynator.DotNet.Cli
+      run: dotnet tool install --global Roslynator.DotNet.Cli --version 0.1.1
     - name: Restore dependencies
       run: dotnet restore ./src/test
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build ./src/test --no-restore
