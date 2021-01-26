@@ -19,6 +19,8 @@ jobs:
         dotnet-version: 5.0.x
     - name: Install Roslynator.DotNet.Cli
       run: dotnet tool install --global Roslynator.DotNet.Cli --version 0.1.1
+    - name: Analyze
+      run: roslynator analyze ./src/test/test.sln
     - name: Restore dependencies
       run: dotnet restore ./src/test
     - name: Build
