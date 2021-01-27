@@ -30,11 +30,9 @@ jobs:
       run: dotnet tool install --global dotnet-grab --version 0.1.1
     - name: Grab
       run:  grab Roslynator.Analyzers@3.1.0-rc
-    - name: list
-      run: ls ./packages/
     - name: Restore dependencies
       run: dotnet restore ./src/test
     - name: Build
       run: dotnet build ./src/test --no-restore
     - name: Analyze
-      run: roslynator analyze ./src/test/test.sln
+      run: roslynator analyze ./src/test/test.sln -a ./packages/Roslynator.Analyzers/3.1.0-rc/analyzers/dotnet/cs
