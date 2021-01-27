@@ -24,8 +24,10 @@ jobs:
     - name: .net SxS
       run: |
        rsync -a ${DOTNET_ROOT/5.0.102/3.1.405}/* $DOTNET_ROOT/  
-    - name: Install Roslynator.DotNet.Cli
+    - name: Install Roslynator
       run: dotnet tool install --global Roslynator.DotNet.Cli --version 0.1.1
+    - name: install dotnet-grab
+      run: dotnet tool install --global dotnet-grab --version 0.1.1
     - name: Restore dependencies
       run: dotnet restore ./src/test
     - name: Build
