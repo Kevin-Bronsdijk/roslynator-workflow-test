@@ -24,12 +24,11 @@ jobs:
     - name: .net SxS
       run: |
        rsync -a ${DOTNET_ROOT/5.0.102/3.1.405}/* $DOTNET_ROOT/  
-      
     - name: Install Roslynator.DotNet.Cli
       run: dotnet tool install --global Roslynator.DotNet.Cli --version 0.1.1
-    - name: Analyze
-      run: roslynator analyze ./src/test/test.sln
     - name: Restore dependencies
       run: dotnet restore ./src/test
     - name: Build
       run: dotnet build ./src/test --no-restore
+    - name: Analyze
+      run: roslynator analyze ./src/test/test.sln
