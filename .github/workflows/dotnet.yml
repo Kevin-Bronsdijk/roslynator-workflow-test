@@ -35,4 +35,4 @@ jobs:
     - name: Build
       run: dotnet build ./src/test --no-restore
     - name: Analyze
-      run: roslynator analyze ./src/test/test.sln -a ./packages/Roslynator.Analyzers/3.1.0-rc/analyzers/dotnet/cs
+      run: roslynator analyze ./src/test/test.sln -a ./packages/Roslynator.Analyzers/3.1.0-rc/analyzers/dotnet/cs -v d
